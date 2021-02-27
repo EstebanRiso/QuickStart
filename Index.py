@@ -1,12 +1,13 @@
 #:kivy !
 from kivy.app import App
+from kivy.lang.builder import Builder
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.label import Label
 from kivy.uix.textinput import TextInput
 from kivy.uix.widget import Widget
 
 
-
+Builder.load_file('kiv_index.kv')
 class MyGrid(Widget):
     pass
 
