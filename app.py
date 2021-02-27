@@ -8,7 +8,7 @@ from kivy.uix.widget import Widget
 
 
 
-#Builder.load_file('images.kv')
+Builder.load_file('images.kv')
 
 class LoginScreen(GridLayout, Widget):
 
