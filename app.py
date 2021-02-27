@@ -2,9 +2,15 @@ from kivy.app import App
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.label import Label
 from kivy.uix.textinput import TextInput
+from kivy.lang import Builder
+from kivy.core.window import Window
+from kivy.uix.widget import Widget
 
 
-class LoginScreen(GridLayout):
+
+#Builder.load_file('images.kv')
+
+class LoginScreen(GridLayout, Widget):
 
     def __init__(self, **kwargs):
         super(LoginScreen, self).__init__(**kwargs)
@@ -20,6 +26,7 @@ class LoginScreen(GridLayout):
 class MyApp(App):
 
     def build(self):
+        Window.clearcolor = (1, 0, 0, 1)
         return LoginScreen()
 
 
