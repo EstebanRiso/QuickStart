@@ -5,7 +5,7 @@ from kivy.uix.textinput import TextInput
 from kivy.lang import Builder
 from kivy.core.window import Window
 from kivy.uix.widget import Widget
-
+from kivy.uix.image import Image
 
 
 Builder.load_file('images.kv')
@@ -21,7 +21,7 @@ class LoginScreen(GridLayout, Widget):
         self.add_widget(Label(text='password'))
         self.password = TextInput(password=True, multiline=False)
         self.add_widget(self.password)
-
+        
 
 class MyApp(App):
 
