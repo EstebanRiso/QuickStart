@@ -12,6 +12,9 @@ con = psycopg2.connect(
 #cursor
 cur=con.cursor()
 
+for i in range(2):
+    cur.execute("insert into Usuario (id_usuario")
+
 cur.execute("select * from Usuario")
 
 rows=cur.fetchall()
