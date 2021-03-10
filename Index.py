@@ -1,4 +1,6 @@
 #:kivy !
+screen_manager= None
+
 from sys import api_version
 from kivy.animation import Animation
 from kivy.app import App
@@ -17,38 +19,6 @@ import backend.connect
 
 Window.size =(305,480)
 
-#Builder.load_file('images.kv')
-
-KV = """
-MDScreen:
-    name: "LoginQuickStart"
-    on_enter:
-        app.anim(back)
-        app.anim1(back1)
-    MDFloatLayout:
-        MDFloatLayout:
-                id: back
-                size_hint_y; .6
-                pos_hint: {"center_y": 1.8}
-                radius: [0, 0, 0, 40]
-                canvas:
-                    Color:
-                        rgb: (1,0,0,1)
-                    Rectangle:
-                        size: self.size
-                        pos: self.pos
-        MDFloatLayout:
-                id: back1
-                size_hint_y; .6
-                pos_hint: {"center_y": 1.8}
-                radius: [0, 0, 0, 40]
-                canvas:
-                    Color:
-                        rgb: (1,0,0,1)
-                    Ellipse:
-                        size: self.size
-                        pos: self.pos
-"""
 
 
 
@@ -64,7 +34,9 @@ class MainApp(MDApp):
     def build(self):
         global screen_manager
         screen_manager = ScreenManager()
-        screen_manager.add_widget(Builder.load_string(KV))
+        #print(Builder.load_file('images.kv'))
+
+        screen_manager.add_widget(Builder.load_file('images.kv'))
         return screen_manager
 
     def anim(self,widget):
@@ -75,6 +47,16 @@ class MainApp(MDApp):
         anim= Animation(pos_hint={"center_y": .85})
         anim.start(widget)
 
+    def icons(self,widget):
+        anim= Animation(pos_hint={"center_y": .8})
+        anim += Animation(pos_hint={"center_y": .85})
+        anim.start(widget)
+
+    def text(self,widget):
+        anim= Animation(opacity=0, duration=2)
+        anim += Animation(opacity=1)
+        anim.start(widget)
+
     #def on_start(self):
       #  self.fps_monitor_start()
 
@@ -82,4 +64,4 @@ class MainApp(MDApp):
 
 if __name__ == "__main__":
  app = MainApp()
-app.run()
+ app.run()

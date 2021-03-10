@@ -1,14 +1,81 @@
 #:kivy 1.9.2
-<LoginScreen>
+MDScreen:
+     name: "LoginQuickStart"
+     on_enter: 
+          app.anim(back) 
+          app.anim1(back1)
+          app.icons(icon)
+          app.text(label)
+     MDFloatLayout:
+          MDFloatLayout:
+               id: back
+               size_hint_y: .6
+               pos_hint: {"center_y": 1.8}
+               radius: [0, 0, 0, 40]
+               canvas:
+                    Color:
+                         rgb: (1,0,0,1)
+                    Rectangle:
+                         size: self.size
+                         pos: self.pos
+          MDFloatLayout:
+               id: back1
+               size_hint_y: .6
+               pos_hint: {"center_y": 1.8}
+               radius: [0, 0, 0, 40]
+               canvas:
+                    Color:
+                         rgb: (1,0,0,1)
+                    Ellipse:
+                         size: self.size
+                         pos: self.pos
+          MDIconButton:
+               id: icon
+               icon: "account-circle"
+               pos_hint:{"center_x": .5, "center_y": .8} 
+               user_font_size: "60sp"
+               theme_text_color: "Custom"
+               text_color: 1, 1, 1, 1
+          
+          MDLabel:
+               id: label 
+               text: f"[font=Arial] Inicio de sesión[/font]"
+               markup: True
+               pos_hint: {"center_y": .75}
+               halign: "center"
+               theme_text_color: "Custom"
+               text_color: 1, 1, 1, 1
+               font_style: "H5"
+               opacity: 0
 
-BoxLayout:
-    orientation: "vertical"
-    size: root.width , root.height
-    padding: 50
-    spacing: 20
-    
-    Image:
-        source: 'imagenes/work.png'
-        #allow_stretch: True
+          MDTextField:
+               hint_text: "Ingresar Correo Electrónico"
+               size_hint_x: .8
+               pos_hint: {"center_x": .5, "center_y": .46}
+               current_hint_text_color: 0, 0, 0, 1
+               color_mode: "custom"
+               line_color_focus: 1, 0, 0, 1
+          MDTextField:
+               hint_text: "Ingresar Contraseña"
+               size_hint_x: .8
+               pos_hint: {"center_x": .5, "center_y": .34}
+               current_hint_text_color: 0, 0, 0, 1
+               password: True
+               color_mode: "custom"
+               line_color_focus: 1, 0, 0, 1
+          MDRaisedButton:
+               text: "Ingresar"
+               pos_hint: {"center_x": .5, "center_y": .2}
+               size_hint_x: .5
+               md_bg_color: 1, 0 , 0, 1
+          MDLabel:
+               text: "Hey!"
+               pos_hint: {"center_x": .672, "center_y": .1}
+               font_style: "Body2"
+          MDTextButton:
+               text: "Olvido su contraseña?"
+               pos_hint: {"center_x": .58, "center_y": .1}
+               custom_color: 1, 0, 0, 1
+
 
 
