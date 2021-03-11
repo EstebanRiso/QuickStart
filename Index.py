@@ -15,7 +15,7 @@ from kivymd.app import MDApp
 from kivymd.uix.label import MDLabel
 from kivymd.icon_definitions import md_icons
 from kivy.uix.screenmanager import ScreenManager, Screen
-import backend.connect
+from QuickStart.backend.connect import BDD # en el caso tuyo solo es necesario que este from backend.connect import BDD
 
 Window.size =(305,480)
 
@@ -36,7 +36,7 @@ class MainApp(MDApp):
         screen_manager = ScreenManager()
         #print(Builder.load_file('images.kv'))
 
-        screen_manager.add_widget(Builder.load_file('images.kv'))
+        screen_manager.add_widget(Builder.load_file('login.kv'))
         return screen_manager
 
     def anim(self,widget):
