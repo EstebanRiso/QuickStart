@@ -16,10 +16,10 @@ class BDD():
     def conectar(self):
         self.con=psycopg2.connect(  
                 host="localhost",
-                database="App01",
+                database="postgres",
                 user="postgres",
                 password="importante")
-
+        
     def generarcursor(self):
         self.cur=self.con.cursor()
         

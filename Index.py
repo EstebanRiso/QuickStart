@@ -1,11 +1,14 @@
 #:kivy !
 screen_manager= None
 
+from logging import root
 from sys import api_version
 from kivy.animation import Animation
 from kivy.app import App
+from kivy.clock import Clock
 from kivy.core.window import Window
 from kivy.lang.builder import Builder
+from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.label import Label
 from kivy.uix.textinput import TextInput
@@ -15,16 +18,16 @@ from kivymd.app import MDApp
 from kivymd.uix.label import MDLabel
 from kivymd.icon_definitions import md_icons
 from kivy.uix.screenmanager import ScreenManager, Screen
-from QuickStart.backend.connect import BDD # en el caso tuyo solo es necesario que este from backend.connect import BDD
+from backend.connect import BDD # en el caso tuyo solo es necesario que este from backend.connect import BDD
 
 Window.size =(305,480)
 
 
 
 
-
-
 class MainApp(MDApp):
+
+
 
 
     def change_screen (self,name):
@@ -34,8 +37,7 @@ class MainApp(MDApp):
     def build(self):
         global screen_manager
         screen_manager = ScreenManager()
-        #print(Builder.load_file('images.kv'))
-
+        self.title="QuickStart"
         screen_manager.add_widget(Builder.load_file('login.kv'))
         return screen_manager
 
@@ -57,9 +59,38 @@ class MainApp(MDApp):
         anim += Animation(opacity=1)
         anim.start(widget)
 
-    #def on_start(self):
-      #  self.fps_monitor_start()
 
+    def __init__(self, **kwargs):
+        super(MainApp, self).__init__(**kwargs)
+        #Clock.schedule_once(self.UserData)
+
+
+    #def UserData(self,instance):
+       # global correoScr, passScr 
+       # correoData =instance.parents.ids.correo.text
+       # passData = instance.parents.ids.password.text
+       # print(correoData)
+       # listaData = [correoData,passData]    
+        #return listaData
+
+       
+ 
+
+
+
+    
+
+
+
+
+#llamada base de datos
+BaseDD= BDD()
+conexionBDD = BaseDD.conectar()
+
+#llamada funciones del main
+Main= MainApp()
+#data = Main.UserData()
+#print(data)
 
 
 if __name__ == "__main__":

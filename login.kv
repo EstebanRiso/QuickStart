@@ -49,6 +49,7 @@ MDScreen:
                opacity: 0
 
           MDTextField:
+               id: correo
                hint_text: "Ingresar Correo Electrónico"
                size_hint_x: .8
                pos_hint: {"center_x": .5, "center_y": .46}
@@ -56,6 +57,7 @@ MDScreen:
                color_mode: "custom"
                line_color_focus: 1, 0, 0, 1
           MDTextField:
+               id: password
                hint_text: "Ingresar Contraseña"
                size_hint_x: .8
                pos_hint: {"center_x": .5, "center_y": .34}
@@ -67,7 +69,8 @@ MDScreen:
                text: "Ingresar"
                pos_hint: {"center_x": .5, "center_y": .2}
                size_hint_x: .5
-               md_bg_color: 1, 0 , 0, 1
+               md_bg_color: 1, 0 , 0, 1 
+               on_release: app.UserData(self)
           MDLabel:
                text: "Hey!"
                pos_hint: {"center_x": .672, "center_y": .1}
