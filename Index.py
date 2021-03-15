@@ -19,7 +19,6 @@ from kivymd.uix.label import MDLabel
 from kivymd.icon_definitions import md_icons
 from kivy.uix.screenmanager import ScreenManager, Screen
 from backend.connect import BDD # en el caso tuyo solo es necesario que este from backend.connect import BDD
-
 Window.size =(305,480)
 
 
@@ -62,14 +61,14 @@ class MainApp(MDApp):
 
     def __init__(self, **kwargs):
         super(MainApp, self).__init__(**kwargs)
-        #Clock.schedule_once(self.UserData)
+        Clock.schedule_once(self.UserData)
 
-
-    #def UserData(self,instance):
-       # global correoScr, passScr 
-       # correoData =instance.parents.ids.correo.text
-       # passData = instance.parents.ids.password.text
-       # print(correoData)
+    
+    def UserData(self):
+        #global correoScr, passScr 
+        correoData =self.root.ids.correo.text
+        passData = self.root.ids.password.text
+        print(correoData, passData)
        # listaData = [correoData,passData]    
         #return listaData
 
