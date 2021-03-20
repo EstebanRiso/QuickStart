@@ -64,7 +64,7 @@ class MainApp(MDApp):
         Clock.schedule_once(self.UserData)
 
     
-    def UserData(self):
+    def UserData(self, *args ,**kwargs):
         #global correoScr, passScr 
         correoData =self.root.ids.correo.text
         passData = self.root.ids.password.text
@@ -94,4 +94,4 @@ Main= MainApp()
 
 if __name__ == "__main__":
  app = MainApp()
- app.run()
+ app.run()                        
