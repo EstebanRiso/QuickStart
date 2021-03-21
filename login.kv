@@ -71,7 +71,12 @@ MDScreen:
                pos_hint: {"center_x": .5, "center_y": .2}
                size_hint_x: .5
                md_bg_color: 1, 0 , 0, 1 
+
                on_release: app.UserData()
+
+               on_release: 
+                    app.UserData()
+
           MDLabel:
                text: "Hey!"
                pos_hint: {"center_x": .672, "center_y": .1}
